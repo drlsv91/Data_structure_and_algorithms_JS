@@ -68,3 +68,13 @@ var recursiveReverse = function(arr) {
   return reversed.concat(recursiveReverse(arr));
 };
 console.log(recursiveReverse([1, 2, 3, 4]));
+
+/*
+Implement factorial.
+factorial(5) => 5*4*3*2*1 => 120
+*/
+var factorial = function(n) {
+  if (n === 1) return 1;
+  return n * factorial(n - 1);
+};
+console.log("factorial", factorial(5));
