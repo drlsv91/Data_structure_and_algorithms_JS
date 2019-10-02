@@ -90,3 +90,21 @@ var fibonnaci = function(n) {
   return fibonnaci(n - 1) + fibonnaci(n - 2);
 };
 console.log(fibonnaci(8));
+/*
+Implement a function that flattens a nested array.
+flatten([1,[2],[3, [[4]]]]);
+=> [1,2,3,4]
+*/
+
+var flattens = function(arr) {
+  var result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!Array.isArray(arr[i])) {
+      result.push(arr[i]);
+    } else {
+      result = result.concat(flattens(arr[i]));
+    }
+  }
+  return result;
+};
+console.log(flattens([1, [2], [3, [[4]]]]));
