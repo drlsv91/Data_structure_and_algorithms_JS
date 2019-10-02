@@ -97,7 +97,6 @@ flatten([1,[2],[3, [[4]]]]);
 */
 
 var flattens = function(arr) {
-  debugger;
   var res = [];
   arr.forEach(element => {
     if (!Array.isArray(element)) {
@@ -109,3 +108,16 @@ var flattens = function(arr) {
   return res;
 };
 console.log(flattens([1, [2], [3, [[4]]]]));
+/*
+Write a function that takes two numbers and returns the greatest common divisor.
+*/
+var gcd = function(num1, num2) {
+  var min = Math.min(num1, num2);
+  var max = Math.max(num1, num2);
+  if (max % min === 0) {
+    return min;
+  } else {
+    return gcd(min, max % min);
+  }
+};
+console.log(gcd(12, 18));
