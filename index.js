@@ -97,14 +97,15 @@ flatten([1,[2],[3, [[4]]]]);
 */
 
 var flattens = function(arr) {
-  var result = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (!Array.isArray(arr[i])) {
-      result.push(arr[i]);
+  debugger;
+  var res = [];
+  arr.forEach(element => {
+    if (!Array.isArray(element)) {
+      res.push(element);
     } else {
-      result = result.concat(flattens(arr[i]));
+      res = res.concat(flattens(element));
     }
-  }
-  return result;
+  });
+  return res;
 };
 console.log(flattens([1, [2], [3, [[4]]]]));
