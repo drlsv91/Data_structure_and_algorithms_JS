@@ -117,14 +117,14 @@ function Queue_TwoStacks() {
 Queue_TwoStacks.prototype.enqueue = function(value) {
   this._stackIn.push(value);
 };
-//to dequeue we need to transverse the list to get the oldest element
-Queue_TwoStacks.prototype.transverse = function() {
+//to dequeue we need to transferStack the list to get the oldest element
+Queue_TwoStacks.prototype.transferStack = function() {
   while (this._stackIn.count() > 0) {
     this._stackOut.push(this._stackIn.pop());
   }
 };
 Queue_TwoStacks.prototype.pop = function() {
-  if (this._stackOut.count() === 0) this.transverse();
+  if (this._stackOut.count() === 0) this.transferStack();
   return this._stackOut.pop();
 };
 
@@ -132,7 +132,7 @@ Queue_TwoStacks.prototype.count = function() {
   return this._stackIn.count() + this._stackOut.count();
 };
 Queue_TwoStacks.prototype.peek = function() {
-  if (this._stackOut.count() === 0) this.transverse();
+  if (this._stackOut.count() === 0) this.transferStack();
   return this._stackOut.peek();
 };
 var qts = new Queue_TwoStacks();
