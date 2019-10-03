@@ -14,6 +14,9 @@ Stacks.prototype.push = function(value) {
 Stacks.prototype.pop = function() {
   var curr = this._storage[--this._count];
   delete this._storage[this._count];
+  if (this._count < 0) {
+    this._count = 0;
+  }
   return curr;
 };
 Stacks.prototype.peek = function() {
