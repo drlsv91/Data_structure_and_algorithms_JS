@@ -67,7 +67,10 @@ var recursiveReverse = function(arr) {
   reversed.push(poped);
   return reversed.concat(recursiveReverse(arr));
 };
-console.log(recursiveReverse([1, 2, 3, 4]));
+console.log(
+  "recursive reverse: ",
+  recursiveReverse([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+);
 
 /*
 Implement factorial.
@@ -111,13 +114,30 @@ console.log(flattens([1, [2], [3, [[4]]]]));
 /*
 Write a function that takes two numbers and returns the greatest common divisor.
 */
+// var gcd = function(num1, num2) {
+//   var min = Math.min(num1, num2);
+//   var max = Math.max(num1, num2);
+//   if (max % min === 0) {
+//     return min;
+//   } else {
+//     return gcd(min, max % min);
+//   }
+// };
+
 var gcd = function(num1, num2) {
-  var min = Math.min(num1, num2);
-  var max = Math.max(num1, num2);
-  if (max % min === 0) {
-    return min;
-  } else {
-    return gcd(min, max % min);
-  }
+  if (num1 === num2) return num1;
+  else if (num1 > num2) return gcd(num1 - num2, num2);
+  else return gcd(num1, num2 - num1);
 };
 console.log(gcd(12, 18));
+/*
+Implement a function that takes in a two-dimensional array of colors that represents a screen, a point in the array, and a color. The function will change the original color of the point to the new color and will fill the surrounding area with the original color in the same fashion.
+*/
+
+/*
+Version 1:
+Given the size of a grid (X rows and Y columns), write a function that returns the number of possible paths one can take starting at the top left of the grid and ending at the bottom right, assuming you can only move to the right and down.
+Version 2:
+Now, imagine that the you can move up, down, left, or right but cannot visit a spot that has already been visited. How many unique paths can the you take?
+Hint: it may be useful to create a grid class and use it to keep track of the state as the you traverses the grid. What useful methods can you put on your grid class? Can you write an implementation that only uses a single grid?
+*/
