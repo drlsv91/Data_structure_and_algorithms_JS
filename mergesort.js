@@ -1,11 +1,11 @@
 const mergeSort = function(arr) {
   if (arr.length <= 1) return arr;
   var half = Math.floor(arr.length / 2);
-  var left = arr.slice(0, half);
-  var right = arr.slice(half);
-  var leftHalf = mergeSort(left);
-  var rightHalf = mergeSort(right);
-  return merge(leftHalf, rightHalf);
+  var leftHalf = arr.slice(0, half);
+  var rightHalf = arr.slice(half);
+  var leftSorted = mergeSort(leftHalf);
+  var rightSorted = mergeSort(rightHalf);
+  return merge(leftSorted, rightSorted);
 };
 
 const merge = function(left, right) {
@@ -20,4 +20,4 @@ const merge = function(left, right) {
   }
   return result;
 };
-console.log(mergeSort([4, 3, 17, 1, 0, 57, 33]));
+console.log(mergeSort([34, 83, 10, 9, 1, 4]));
